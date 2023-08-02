@@ -3,7 +3,7 @@ import colorNames from 'colornames';
 
 
 //Distructure
-const InputBox = ({colorValue, setColorValue, setHexValue}) => {
+const InputBox = ({colorValue, setColorValue, setHexValue, isDarkText, setIsDarkText}) => {
   return (
     //Annonumous Function ()=> with an Event(e) to Handle and Stop the refresh when Form is Submitted
     <form onSubmit={(e) => e.preventDefault()}>
@@ -20,7 +20,13 @@ const InputBox = ({colorValue, setColorValue, setHexValue}) => {
               setColorValue(e.target.value)
               setHexValue(colorNames(e.target.value));
             }}
-        />
+        /> 
+    {/* Add a button to toggle the Props Distructed */}
+      <button
+        type= "button"
+        onClick={()=> setIsDarkText(!isDarkText)}
+      >Toggle Text Color 
+      </button>
     </form>
   )
 }
